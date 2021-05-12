@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Treasure Hunt - Question</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'favicon.ico' %}"
+    />
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+    <noscript
+      ><link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <div id="main">
+      <article style="opacity: 1; margin-top: 20%">
+        {% if stage.next_stage.slug %}
+        <h2 class="major">{{ stage.question }}</h2>
+        {% if error %}
+        <h3 style="color: #ff4444">{{ error }}</h3>
+        {% endif %} {% if stage.description %}
+        <p><b>{{ stage.description|linebreaks }}</b></p>
+        {% endif %}
+        <form method="post" action="{% url 'check' stage.slug %}">
+          {% csrf_token %}
+          <div class="fields">
+            <div class="field">
+              <input
+                type="text"
+                name="answer"
+                value=""
+                placeholder="Hier könnte eine Antwort stehen"
+              />
+            </div>
+          </div>
+          <input
+            style="margin-left: 38%"
+            type="submit"
+            value="Next"
+            class="primary"
+          />
+        </form>
+        {% comment %}
+        <a href="{% url 'stage' stage.next_stage.slug %}"
+          >Hier geht es zur nächsten Frage</a
+        >
+        {% endcomment %} {% else %}
+        <h2 class="major">Wuu. Das war ja einfach.</h2>
+        <h3>Gesucht und gefunden wurde</h3>
+        <h3 style="margin-left: 20%">{{ stage.corresponding_map.password }}</h3>
+        <br />
+        <br />
+        <h4><a href="{% url 'index' %}">Hier gehts zum Anfang</a></h4>
+        {% endif %}
+      </article>
+    </div>
+  </body>
+</html>

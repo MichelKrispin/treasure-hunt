@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Treasure Hunt</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'favicon.ico' %}"
+    />
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+    <noscript
+      ><link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <div class="logo">
+          <span class="icon fa-gem"></span>
+        </div>
+        <div class="content">
+          <div class="inner">
+            <h1>Treasure Hunt</h1>
+            <h3>Find your next pin</h3>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            {% for map in maps %}
+            <li>
+              <a href="#{{ map.title|slugify }}">{{ map.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </header>
+      <!-- Main -->
+      <div id="main">
+        {% for map in maps %}
+        <article id="{{ map.title|slugify }}">
+          <h1 class="major">{{ map.title }}</h1>
+          <span class="image main"
+            ><img src="{% static 'images/maps.jpg' %}" alt=""
+          /></span>
+          <h3>{{ map.description }}</h3>
+          <h2 class="major" style="margin-left: 40%">
+            <a
+              href="{% url 'stage' map.first_stage.slug %}"
+              style="border-bottom: transparent"
+              >Start</a
+            >
+          </h2>
+        </article>
+        {% endfor %}
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <p class="copyright">
+          &copy; Michel Krispin. Design:
+          <a href="https://html5up.net">HTML5 UP</a>.
+        </p>
+      </footer>
+    </div>
+
+    <!-- BG -->
+    <div id="bg"></div>
+
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/browser.min.js' %}"></script>
+    <script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/util.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+  </body>
+</html>
