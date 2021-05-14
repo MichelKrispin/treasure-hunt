@@ -1,0 +1,4 @@
+The SECRET_KEY environment variable is needed to run this project.
+
+To run it locally either remove the comment in the treasurehunt/settings.py file or create a .env file with the SECRET_KEY defined.
+Also DEBUG_MODE should be either True or False.
