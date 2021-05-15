@@ -14,6 +14,8 @@ If run on a public website the following environment variables should be set
 - `SECRET_KEY=some_secret_key` (use a search engine to find a generator)
 - `DEBUG_MODE=False` (or `True` depending on the testing state)
 
+There might be an issue with the migrations. If there is an error at the index page `python manage.py makemigrations hunting` and then `python manage.py migrate` might solve the problem.
+
 ## Test locally
 
 ### Unix
