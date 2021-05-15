@@ -5,7 +5,6 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 
-from .forms import StageForm
 from .models import Map, Stage
 
 # One of these are randomly selected
