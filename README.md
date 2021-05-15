@@ -33,3 +33,9 @@ python manage.py runserver
 ```
 
 The http://127.0.0.1:8000/admin page should be used to add a question.
+
+## Admin site
+
+There are two models: The `map` and the `stage`. A stage is one question with a corresponding answer. Each map is the top level structure which holds the secret password and starts the first stage (that one with the lowest level).
+
+On each stage the answer will be checked and if correct the next stage with the next higher level will be linked. The latest (highest level) question will not show the question but only a pre-written text and the maps password.
