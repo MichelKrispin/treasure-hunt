@@ -1,6 +1,8 @@
 # Treasure Hunt
 
-Website to hunt for Pins and Passwords
+A Website to hunt for pins and passwords.
+
+There are questions which can be written on an admin site and if the stream of questions are correctly answered by a user a pin or password will be presented.
 
 ## Up and Running
 
