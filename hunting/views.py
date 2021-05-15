@@ -84,10 +84,14 @@ def check_answer(correct_answer, given_answer):
     return False
 
 def check_stage(request, id):
-    stage = get_object_or_404(Stage, pk=id)
+    current_stage = get_object_or_404(Stage, pk=id)
     
     # This here is the answer checking thing
-    if check_answer(stage.answer, request.POST['answer']):
-        return HttpResponseRedirect(reverse('stage', args=(stage.next_stage.slug,)))
-    return render(request, 'hunting/stage.html', { 'stage': stage, 'error': random.choice(errors) })
+    if check_answer(current_stage.answer, request.POST['answer']):
+        # If the answer is correct get the stage with the next higher level
+        next_stage = Stage.objects.filter(level__gt=current_stage.level).first()
+        return HttpResponseRedirect(reverse('stage', args=(next_stage.slug,)))
+    
+    # If the answer was wrong just return a random error and the same stage again
+    return render(request, 'hunting/stage.html', { 'stage': current_stage, 'error': random.choice(errors) })
 

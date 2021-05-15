@@ -26,7 +26,17 @@
   <body class="is-preload">
     <div id="main">
       <article style="opacity: 1; margin-top: 20%">
-        {% if stage.next_stage.slug %}
+        {% if stage.is_latest %}
+
+        <h2 class="major">Wuu. Das war ja einfach.</h2>
+        <h3>Gesucht und gefunden wurde</h3>
+        <h3 style="margin-left: 20%">{{ stage.corresponding_map.password }}</h3>
+        <br />
+        <br />
+        <h4><a href="{% url 'index' %}">Hier gehts zum Anfang</a></h4>
+
+        {% else %} {# If its not the latest question display it #}
+
         <h2 class="major">{{ stage.question }}</h2>
         {% if error %}
         <h3 style="color: #ff4444">{{ error }}</h3>
@@ -52,17 +62,6 @@
             class="primary"
           />
         </form>
-        {% comment %}
-        <a href="{% url 'stage' stage.next_stage.slug %}"
-          >Hier geht es zur nächsten Frage</a
-        >
-        {% endcomment %} {% else %}
-        <h2 class="major">Wuu. Das war ja einfach.</h2>
-        <h3>Gesucht und gefunden wurde</h3>
-        <h3 style="margin-left: 20%">{{ stage.corresponding_map.password }}</h3>
-        <br />
-        <br />
-        <h4><a href="{% url 'index' %}">Hier gehts zum Anfang</a></h4>
         {% endif %}
       </article>
     </div>

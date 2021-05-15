@@ -56,13 +56,17 @@
             ><img src="{% static 'images/maps.jpg' %}" alt=""
           /></span>
           <h3>{{ map.description }}</h3>
+          {% if map.stages.all.0.slug %}
           <h2 class="major" style="margin-left: 40%">
             <a
-              href="{% url 'stage' map.first_stage.slug %}"
+              href="{% url 'stage' map.stages.all.0.slug %}"
               style="border-bottom: transparent"
               >Start</a
             >
           </h2>
+          {% else %}
+          <h3 style="margin-left: 5%">Start under construction ...</h3>
+          {% endif %}
         </article>
         {% endfor %}
       </div>
