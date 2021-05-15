@@ -8,9 +8,9 @@ Website to hunt for Pins and Passwords
 
 If run on a public website the following environment variables should be set
 
-- DJANGO_SETTINGS_MODULE=treasurehunt.production
-- SECRET_KEY=some_secret_key (use a search engine to find a generator)
-- DEBUG_MODE=False (or True depending on the testing state)
+- `DJANGO_SETTINGS_MODULE=treasurehunt.production`
+- `SECRET_KEY=some_secret_key` (use a search engine to find a generator)
+- `DEBUG_MODE=False` (or `True` depending on the testing state)
 
 ## Test locally
 
