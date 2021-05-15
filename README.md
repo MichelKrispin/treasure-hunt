@@ -4,6 +4,8 @@ A Website to hunt for pins and passwords.
 
 There are questions which can be written on an admin site and if the stream of questions are correctly answered by a user a pin or password will be presented.
 
+(Great for someone who should work a little by answering a few questions before receiving the Wifi password)
+
 ## Up and Running
 
 ### Environment variables
