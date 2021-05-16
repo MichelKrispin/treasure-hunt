@@ -2,3 +2,4 @@ django
 gunicorn
 django-heroku
 fuzzywuzzy[speedup]
+django-markdownify

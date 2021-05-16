@@ -1,4 +1,5 @@
 {% load static %}
+{% load markdownify %}
 <!DOCTYPE html>
 <!--
 	Dimension by HTML5 UP
@@ -40,8 +41,10 @@
         <h2 class="major">{{ stage.question }}</h2>
         {% if error %}
         <h3 style="color: #ff4444">{{ error }}</h3>
-        {% endif %} {% if stage.description %}
-        <p><b>{{ stage.description|linebreaks }}</b></p>
+        {% endif %}
+        {% if stage.description %}
+        {{ stage.description|markdownify }}
+        <hr />
         {% endif %}
         <form method="post" action="{% url 'check' stage.slug %}">
           {% csrf_token %}
