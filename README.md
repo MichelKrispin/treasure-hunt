@@ -30,6 +30,8 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+(Maybe `libpq-dev` has to be installed)
+
 After that the default django commands are used
 
 ```
