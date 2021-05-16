@@ -18,7 +18,9 @@ errors = {
         'Ganz knappes Ding',
         'Wirkling eng',
         'Naja fast',
-
+        'Noch n bisschen',
+        'Du kannst es fast riechen',
+        'So nah, dass ein Schritt zurück vielleicht helfen kann',
     ],
     'far': [
         'Nicht wirklich',
@@ -28,14 +30,22 @@ errors = {
         'Pffffffff sicher nicht.',
         'Was war denn das für eine schräge Idee?',
         'Ganz sicher nicht...',
+        'Ei ei ei...',
+        'Na klar.',
+        'Sowas abwegiges',
+        'An sowas hätte ich im Leben nicht gedacht',
+        'Da muss ich drüber nachdenken... Nein.',
+        'Ha ne',
+        'O ___ O',
     ],
     'always': [
-        'Versuch es doch einmal nochmal',
+        'Versuch es doch einfach nochmal',
         'Achso? Das war ja nicht so wirklich richtig...',
         'Nö',
         'Leider nicht',
         'Hehe. Ne.',
         'Äh nein?',
+        'Bestimmt nicht',
     ]
 }
 
